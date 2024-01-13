@@ -13,7 +13,7 @@ import {BookStoreProvider} from "./contexts/Books/BookStoreContext.jsx";
 import {OrderProvider} from "./contexts/Order/OrderContext.jsx";
 import {UserProvider} from "./contexts/user/UserContext.jsx";
 import AppLayoutUser from "./ui/user/AppLayoutUser.jsx"
-import AppLayoutAdmin from "./ui/user/AppLayoutUser.jsx"
+import AppLayoutAdmin from "./ui/admin/AppLayoutAdmin.jsx"
 const Authentication = lazy(() => import("./pages/user/auth/Authentication.jsx"))
 const Homepage = lazy(() => import("./pages/user/home/Homepage.jsx"))
 const PrivateRoute = lazy(() => import("./pages/user/auth/PrivateRoute.jsx"))
