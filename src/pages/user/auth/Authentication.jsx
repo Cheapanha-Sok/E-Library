@@ -32,7 +32,7 @@ export default function Authentication() {
         return <Navigate to="/" />;
     }
     return (
-        <div className="flex justify-center items-center px-5 md:px-0 py-5 h-[80vh]">
+        <div className="flex justify-center items-center p-5 md:p-0 h-full md:h-[80vh]">
             <div className="max-w-5xl mx-auto">
                 <div className="flex shadow-2xl rounded-xl">
                     {authToShow}

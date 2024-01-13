@@ -23,7 +23,7 @@ export default function UpdatePassword() {
   }
   return (
     <>
-      <div className="md:w-1/2 text-white p-5">
+      <div className="w-full md:w-1/2 p-5">
         <h1 className="text-3xl font-semibold text-black">
           Forgot password
         </h1>

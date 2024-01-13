@@ -39,7 +39,7 @@ export default function Register({ setAuthOption }) {
       <div className="w-1/2 p-5 md:flex hidden justify-center items-center">
         <img src={Logo} alt="Reading a Book" className="rounded-xl" />
       </div>
-      <div className="md:w-1/2 p-5">
+      <div className="w-full md:w-1/2 p-5">
         <h1 className="text-3xl font-semibold">Sign Up</h1>
         <p className="mt-5 uppercase">Please provide us</p>
         <form onSubmit={onSubmit} className="flex flex-col gap-4 py-5">
