@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 export default function BookItem({ book }) {
-  const { bookId, title, categories, price, image , description } = book;
+  const { bookId, title, categories, price, image, description } = book;
   return (
     <div className="w-full bg-white shadow-md border-gray-200 md:duration-500 md:hover:scale-105 md:hover:shadow-xl ">
       <Link to={`/book/${categories}/${bookId}`}>

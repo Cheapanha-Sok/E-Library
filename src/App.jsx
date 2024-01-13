@@ -12,8 +12,9 @@ import {doc, getDoc} from "firebase/firestore";
 import {BookStoreProvider} from "./contexts/Books/BookStoreContext.jsx";
 import {OrderProvider} from "./contexts/Order/OrderContext.jsx";
 import {UserProvider} from "./contexts/user/UserContext.jsx";
+import AppLayoutUser from "./ui/user/AppLayoutUser.jsx"
+import AppLayoutAdmin from "./ui/user/AppLayoutUser.jsx"
 const Authentication = lazy(() => import("./pages/user/auth/Authentication.jsx"))
-const AppLayoutUser = lazy(() => import("./ui/user/AppLayoutUser.jsx"))
 const Homepage = lazy(() => import("./pages/user/home/Homepage.jsx"))
 const PrivateRoute = lazy(() => import("./pages/user/auth/PrivateRoute.jsx"))
 const Cart = lazy(() => import("./pages/user/cart/Cart.jsx"))
@@ -25,7 +26,6 @@ const NotFound = lazy(() => import("./ui/NotFound.jsx"))
 const UserProfile = lazy(() => import("./pages/user/user/UserProfile.jsx"))
 const ReadBook = lazy(() => import("./pages/user/ReadBook/ReadBook.jsx"))
 const Dashboard = lazy(()=> import("./pages/admin/Dashboard.jsx"))
-const AppLayoutAdmin = lazy(()=> import("./ui/admin/AppLayoutAdmin.jsx"))
 const UserList  = lazy(()=>import("./pages/admin/User/UserList.jsx"))
 const BookList = lazy(()=>import("./pages/admin/Book/BookList.jsx"))
 const OrderList = lazy(()=> import("./pages/admin/Order/OrderList.jsx"))
