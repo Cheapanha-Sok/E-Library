@@ -5,7 +5,7 @@ export default function BookItem({ book }) {
     <div className="w-full bg-white shadow-md border-gray-200 md:duration-500 md:hover:scale-105 md:hover:shadow-xl ">
       <Link to={`/book/${categories}/${bookId}`}>
         <div className="bg-gradient-to-r from-white to-[#283d50] p-5 md:p-10 rounded-t-lg">
-          <img src={image} alt="bookimg" className="h-[100px] w-[80%] md:h-[220px] mx-auto" />
+          <img src={image} alt="bookimg" className="h-[130px] w-[80%] md:h-[220px] mx-auto" />
         </div>
 
         <div className="flex flex-col gap-1 p-2">
