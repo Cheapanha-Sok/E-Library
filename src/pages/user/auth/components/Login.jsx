@@ -31,7 +31,7 @@ export default function Login({ setAuthOption }) {
   return (
     <>
       <div className="w-full md:w-1/2 p-5">
-        <h1 className="text-3xl font-semibold">Sign In</h1>
+        <h1 className="text-xl md:text-3xl font-semibold">Sign In</h1>
         <p className="mt-5 uppercase">Please provide us</p>
         <form onSubmit={onSubmit} className="flex flex-col gap-4 py-5">
           {/* Form Inputs */}
@@ -56,7 +56,7 @@ export default function Login({ setAuthOption }) {
           <Button type="submit" customClass="bg-[#283d50]">
             Sign In
           </Button>
-          <span onClick={() => setAuthOption("Forget Password")} className="text-black text-end cursor-pointer">
+          <span onClick={() => setAuthOption("Forget Password")} className=" text-end cursor-pointer">
             Forget your password?
           </span>
         </form>

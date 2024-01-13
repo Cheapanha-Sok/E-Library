@@ -5,7 +5,7 @@ import Button from "../../../../ui/shared/Button.jsx";
 import Input from "../../../../ui/shared/Input.jsx";
 import { useNavigate } from "react-router-dom";
 
-export default function UpdatePassword() {
+export default function UpdatePassword({ setAuthOption }) {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
 
@@ -24,7 +24,7 @@ export default function UpdatePassword() {
   return (
     <>
       <div className="w-full md:w-1/2 p-5">
-        <h1 className="text-3xl font-semibold text-black">
+        <h1 className="text-xl md:text-3xl font-semibold">
           Forgot password
         </h1>
         <p className="uppercase mt-5 text-black">
@@ -40,6 +40,7 @@ export default function UpdatePassword() {
             onChange={handleEmailChange}
             required
           />
+          <span onClick={() => setAuthOption("Sign In")} className="text-end cursor-pointer">Cancel</span>
           <Button customClass="bg-[#283d50]" type="submit">
             Reset
           </Button>

@@ -40,7 +40,7 @@ export default function Register({ setAuthOption }) {
         <img src={Logo} alt="Reading a Book" className="rounded-xl" />
       </div>
       <div className="w-full md:w-1/2 p-5">
-        <h1 className="text-3xl font-semibold">Sign Up</h1>
+        <h1 className="text-xl md:text-3xl font-semibold">Sign Up</h1>
         <p className="mt-5 uppercase">Please provide us</p>
         <form onSubmit={onSubmit} className="flex flex-col gap-4 py-5">
           {/* Form Inputs */}
