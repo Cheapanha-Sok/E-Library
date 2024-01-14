@@ -1,6 +1,7 @@
 import { useState } from "react";
 import {createNewBook} from "../../../../contexts/Books/BookStoreAction.js";
 import Modal from "../../../../ui/shared/Modal.jsx";
+import Input from "../../../../ui/shared/Input.jsx";
 
 export default function AddBook({ onClose , name  }) {
   const initialState = {
@@ -51,17 +52,17 @@ export default function AddBook({ onClose , name  }) {
         <div className="flex flex-col gap-2 md:gap-5">
           <div className="flex flex-col md:flex-row gap-2 md:items-center">
             <label htmlFor="title" className="text-sm font-medium text-white">Title:</label>
-            <input
+            <Input
               type="text"
-              className="px-5 py-2 rounded-lg border-2"
+              style="px-5 py-2 rounded-lg border-2"
               id="title"
               value={inputData.title}
               onChange={onChange}
               required
             />
             <label htmlFor="price" className="text-sm font-medium text-white">Price:</label>
-            <input
-              className="px-5 py-2 rounded-lg border-2"
+            <Input
+              style="px-5 py-2 rounded-lg border-2"
               type="number"
               id="price"
               value={inputData.price}
@@ -71,8 +72,8 @@ export default function AddBook({ onClose , name  }) {
           </div>
           <div className="flex flex-col md:flex-row gap-2 md:items-center">
             <label htmlFor="categories" className="text-sm font-medium text-white">Categories:</label>
-            <input
-              className="px-5 py-2 rounded-lg border-2"
+            <Input
+              style="px-5 py-2 rounded-lg border-2"
               type="text"
               id="categories"
               value={inputData.categories}
@@ -80,8 +81,8 @@ export default function AddBook({ onClose , name  }) {
               required
             />
             <label htmlFor="author" className="text-sm font-medium text-white">Author:</label>
-            <input
-              className="px-5 py-2 rounded-lg border-2"
+            <Input
+              style="px-5 py-2 rounded-lg border-2"
               type="text"
               id="author"
               defaultValue={name}
@@ -92,8 +93,8 @@ export default function AddBook({ onClose , name  }) {
 
           <div className="flex flex-col md:flex-row gap-2 md:items-center">
             <label htmlFor="image" className="text-sm font-medium text-white">Image:</label>
-            <input
-              className="rounded-lg"
+            <Input
+              style="rounded-lg"
               type="file"
               id="image"
               accept="image/*"
@@ -102,8 +103,8 @@ export default function AddBook({ onClose , name  }) {
             />
 
             <label htmlFor="bookPdf" className="text-sm font-medium text-white">BookPDF:</label>
-            <input
-              className="rounded-lg"
+            <Input
+              style="rounded-lg"
               type="file"
               id="bookPdf"
               accept=".pdf"

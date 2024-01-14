@@ -137,7 +137,7 @@ export default function BookList({ role, name }) {
   return (
     <ul className="flex flex-col gap-5 p-5">
       {!listBooks ? (
-        <p>no data</p>
+        <p>No book yet</p>
       ) : loading ? (
         <Spinner />
       ) : (

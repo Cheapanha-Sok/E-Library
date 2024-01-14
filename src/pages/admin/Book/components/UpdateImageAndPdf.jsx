@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import {updateBookImageAndPdf} from "../../../../contexts/Books/BookStoreAction.js";
+import Input from '../../../../ui/shared/Input.jsx';
 
 export default function UpdateImageAndPdf({ bookData, bookId }) {
     const { image, bookPdf } = bookData;
@@ -41,8 +42,8 @@ export default function UpdateImageAndPdf({ bookData, bookId }) {
                         >
                             BookImage:
                         </label>
-                        <input
-                            className="rounded-lg"
+                        <Input
+                            style="rounded-lg"
                             type="file"
                             id="image"
                             accept="image/*"
@@ -60,8 +61,8 @@ export default function UpdateImageAndPdf({ bookData, bookId }) {
                         >
                             BoookPdf:
                         </label>
-                        <input
-                            className="rounded-lg"
+                        <Input
+                            style="rounded-lg"
                             type="file"
                             id="bookPdf"
                             accept=".pdf"
