@@ -14,6 +14,8 @@ import { OrderProvider } from "./contexts/Order/OrderContext.jsx";
 import { UserProvider } from "./contexts/user/UserContext.jsx";
 import AppLayoutUser from "./ui/user/AppLayoutUser.jsx"
 import AppLayoutAdmin from "./ui/admin/AppLayoutAdmin.jsx"
+import { BackUpDataProvider } from "./contexts/BackUpData/BackUpDataContext.jsx";
+import BackUpDataList from "./pages/admin/BackUpData/BackUpDataList.jsx";
 const Authentication = lazy(() => import("./pages/user/auth/Authentication.jsx"))
 const Homepage = lazy(() => import("./pages/user/home/Homepage.jsx"))
 const PrivateRoute = lazy(() => import("./pages/user/auth/PrivateRoute.jsx"))
@@ -52,6 +54,7 @@ const App = () => {
         <BookStoreProvider>
             <UserProvider>
                 <OrderProvider>
+                    <BackUpDataProvider>
                     <Router>
                         <Suspense fallback={<Spinner type="full" />}>
                             <Routes>
@@ -60,6 +63,7 @@ const App = () => {
                                     <Route path="/books" element={<BookList role={role} name={name} />} />
                                     <Route path="/users" element={<UserList role={role} />} />
                                     <Route path="/orders" element={<OrderList />} />
+                                    <Route path="/backUpData" element={<BackUpDataList />} />
                                     <Route path="/*" element={<NotFound />} />
                                 </Route> : (
                                     <Route element={<AppLayoutUser />}>
@@ -112,6 +116,7 @@ const App = () => {
                             </Routes>
                         </Suspense>
                     </Router>
+                    </BackUpDataProvider>
                 </OrderProvider>
             </UserProvider>
         </BookStoreProvider>

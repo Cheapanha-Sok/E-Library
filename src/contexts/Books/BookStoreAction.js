@@ -3,7 +3,9 @@ import {
   collection,
   deleteDoc,
   doc,
+  getDoc,
   onSnapshot,
+  setDoc,
   updateDoc,
 } from "firebase/firestore";
 import { db, getDataStorage } from "../../firebase.config";
@@ -38,15 +40,8 @@ export const getAllProduct = (callback) => {
 export const createNewBook = async (book) => {
   try {
     const bookRef = collection(db, "books");
-    const {
-      title,
-      description,
-      price,
-      image,
-      bookPdf,
-      author,
-      categories,
-    } = book;
+    const { title, description, price, image, bookPdf, author, categories } =
+      book;
 
     const docRef = await addDoc(bookRef, {
       title,
@@ -81,8 +76,7 @@ export const createNewBook = async (book) => {
 
 export const updateBookInfo = async (bookData, bookId) => {
   try {
-    const { title, description, price, date , author, categories } =
-      bookData;
+    const { title, description, price, date, author, categories } = bookData;
     const docRef = doc(db, "books", bookId);
     if (title) {
       await updateDoc(docRef, {
@@ -96,7 +90,7 @@ export const updateBookInfo = async (bookData, bookId) => {
     }
     if (price) {
       await updateDoc(docRef, {
-        price:parseFloat(price),
+        price: parseFloat(price),
       });
     }
     if (date) {
@@ -124,7 +118,7 @@ export const updateBookInfo = async (bookData, bookId) => {
 export const updateBookImageAndPdf = async (bookData, bookId) => {
   try {
     const docRef = doc(db, "books", bookId);
-    const {image, bookPdf} = bookData;
+    const { image, bookPdf } = bookData;
     if (image) {
       const bookImgRef = ref(getDataStorage, `books/bookImage/${bookId}`);
       await uploadBytes(bookImgRef, image);
@@ -146,19 +140,47 @@ export const updateBookImageAndPdf = async (bookData, bookId) => {
     console.log(error);
     toast.error("Error updating book:", error);
   }
-}
+};
 export const removeBook = async (bookId) => {
   try {
     const bookImgRef = ref(getDataStorage, `books/bookImage/${bookId}`);
     const bookPdfRef = ref(getDataStorage, `books/bookPdf/${bookId}`);
     await deleteObject(bookImgRef);
     await deleteObject(bookPdfRef);
-    const productRef = doc(db, "books", bookId);
-    await deleteDoc(productRef);
+    const bookRef = doc(db, "books", bookId);
+    const bookData = await getDoc(bookRef);
+    await addToBackUpData(bookId, bookData.data());
+    await deleteDoc(bookRef);
     toast.success("Remove Book Success");
   } catch (error) {
-    console.log(error); 
+    console.log(error);
     toast.error("Something when wrong");
+  }
+};
+export const addToBackUpData = async (bookId, bookItem) => {
+  try {
+    const { author, categories, description, price, title , image , bookPdf } = bookItem;
+    const backUpRef = doc(db, "backUpData", bookId);
+    const imageRef = ref(getDataStorage, `backUpData/bookImage/${bookId}`);
+    const pdfRef = ref(getDataStorage, `backUpData/bookPdf/${bookId}`);
+
+    await uploadBytes(imageRef, image);
+    await uploadBytes(pdfRef, bookPdf);
+
+    const imageUrl = await getDownloadURL(imageRef);
+    const pdfUrl = await getDownloadURL(pdfRef);
+
+    await setDoc(backUpRef, {
+      title,
+      categories,
+      author,
+      description,
+      price,
+      image: imageUrl,
+      bookPdf: pdfUrl,
+    });
+  } catch (error) {
+    console.log(error);
   }
 };
 
@@ -181,8 +203,8 @@ export const calculateNumberOfBook = (listProduct) => {
     study: 0,
     comdy: 0,
     horror: 0,
-    novel : 0,
-    all_book : 0
+    novel: 0,
+    all_book: 0,
   };
   listProduct.forEach((product) => {
     const type = product.data.categories.toLowerCase();

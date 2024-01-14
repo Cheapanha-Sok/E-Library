@@ -7,7 +7,6 @@ export default function OrderItem({ data }) {
         setShowItem(!isShowItem)
     }
     const { checkOutPrice, email, items, orderAt, phoneNumber, userId } = data
-    console.log(items)
     return (
         <li className='p-5'>
             <div className='flex flex-col md:flex-row gap-5 border-2 justify-between items-center p-5'>
