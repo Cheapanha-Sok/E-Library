@@ -1,5 +1,13 @@
-import { collection, onSnapshot } from "firebase/firestore";
-import { db } from "../../firebase.config";
+import {
+  collection,
+  deleteDoc,
+  doc,
+  onSnapshot,
+  setDoc,
+} from "firebase/firestore";
+import { db, getDataStorage } from "../../firebase.config";
+import { deleteObject, ref } from "firebase/storage";
+import { toast } from "react-toastify";
 
 export const getBackUpData = (callback) => {
   const docRef = collection(db, "backUpData");
@@ -20,4 +28,40 @@ export const getBackUpData = (callback) => {
     }
   );
   return unsubscribe;
+};
+export const addToBackUpData = async (bookId, bookData) => {
+  try {
+    const { author, categories, description, price, title, image, bookPdf } =
+      bookData;
+    const backUpRef = doc(db, "backUpData", bookId);
+
+    await setDoc(backUpRef, {
+      title,
+      categories,
+      author,
+      description,
+      price,
+      image,
+      bookPdf,
+    });
+    return true;
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const removeFromBackUpData = async (bookId, isRemove) => {
+  try {
+    const backUpDataRef = doc(db, "backUpData", bookId);
+    const bookImgRef = ref(getDataStorage, `books/bookImage/${bookId}`);
+    const bookPdfRef = ref(getDataStorage, `books/bookPdf/${bookId}`);
+    if (isRemove) {
+      await deleteObject(bookImgRef);
+      await deleteObject(bookPdfRef);
+    }
+
+    await deleteDoc(backUpDataRef);
+    toast.success("Remove from backup data success")
+  } catch (error) {
+    console.log(error);
+  }
 };

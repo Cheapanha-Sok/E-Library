@@ -16,6 +16,10 @@ import {
   deleteObject,
 } from "firebase/storage";
 import { toast } from "react-toastify";
+import {
+  addToBackUpData,
+  removeFromBackUpData,
+} from "../BackUpData/BackUpDataAction";
 
 export const getAllProduct = (callback) => {
   const docRef = collection(db, "books");
@@ -143,47 +147,44 @@ export const updateBookImageAndPdf = async (bookData, bookId) => {
 };
 export const removeBook = async (bookId) => {
   try {
-    const bookImgRef = ref(getDataStorage, `books/bookImage/${bookId}`);
-    const bookPdfRef = ref(getDataStorage, `books/bookPdf/${bookId}`);
-    await deleteObject(bookImgRef);
-    await deleteObject(bookPdfRef);
     const bookRef = doc(db, "books", bookId);
     const bookData = await getDoc(bookRef);
-    await addToBackUpData(bookId, bookData.data());
-    await deleteDoc(bookRef);
-    toast.success("Remove Book Success");
+    const response = await addToBackUpData(bookId, bookData.data());
+    if (response) {
+      await deleteDoc(bookRef);
+      toast.success("Remove Book Success");
+    }
   } catch (error) {
     console.log(error);
     toast.error("Something when wrong");
   }
 };
-export const addToBackUpData = async (bookId, bookItem) => {
+export const getDataBack = async (
+  bookId,
+  title,
+  price,
+  description,
+  image,
+  categories,
+  author,
+  bookPdf
+) => {
   try {
-    const { author, categories, description, price, title , image , bookPdf } = bookItem;
-    const backUpRef = doc(db, "backUpData", bookId);
-    const imageRef = ref(getDataStorage, `backUpData/bookImage/${bookId}`);
-    const pdfRef = ref(getDataStorage, `backUpData/bookPdf/${bookId}`);
-
-    await uploadBytes(imageRef, image);
-    await uploadBytes(pdfRef, bookPdf);
-
-    const imageUrl = await getDownloadURL(imageRef);
-    const pdfUrl = await getDownloadURL(pdfRef);
-
-    await setDoc(backUpRef, {
+    const bookRef = doc(db, "books", bookId);
+    await setDoc(bookRef, {
       title,
-      categories,
-      author,
       description,
-      price,
-      image: imageUrl,
-      bookPdf: pdfUrl,
+      price: parseFloat(price),
+      author,
+      categories,
+      image,
+      bookPdf,
     });
+    await removeFromBackUpData(bookId , false);
   } catch (error) {
     console.log(error);
   }
 };
-
 export const calculateBookFree = (listBooks) => {
   const typeCount = {
     free: 0,

@@ -63,7 +63,7 @@ const App = () => {
                                     <Route path="/books" element={<BookList role={role} name={name} />} />
                                     <Route path="/users" element={<UserList role={role} />} />
                                     <Route path="/orders" element={<OrderList />} />
-                                    <Route path="/backUpData" element={<BackUpDataList />} />
+                                        <Route path="/backUpData" element={<BackUpDataList role={role} name={name} />} />
                                     <Route path="/*" element={<NotFound />} />
                                 </Route> : (
                                     <Route element={<AppLayoutUser />}>

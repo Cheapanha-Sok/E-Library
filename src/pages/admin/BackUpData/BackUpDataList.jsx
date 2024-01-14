@@ -4,9 +4,9 @@ import { useContext, useEffect } from 'react'
 import BackUpDataItem from './components/BackUpDataItem'
 import Spinner from '../../../ui/Spinner'
 
-export default function BackUpDataList() {
-
+export default function BackUpDataList({ role, name }) {
     const { listsBackUpData, dispatch, loading } = useContext(BackUpDataContext)
+    console.log(role)
     useEffect(() => {
         dispatch({ type: "SET_LOADING" })
         const unsubscribe = getBackUpData((data) => {
@@ -16,12 +16,12 @@ export default function BackUpDataList() {
     }, [dispatch])
     return (
         <>
-            {!listsBackUpData.length ? <p>No Order</p> : loading ? <Spinner type="full" /> : <div className='flex-col gap-5'>
+            {!listsBackUpData.length ? <p>No back up data</p> : loading ? <Spinner type="full" /> : <div className='flex-col gap-5'>
                 <div className="w-full md:w-1/2 mx-auto">
                 </div>
                 <ul className='flex-col gap-5 p-5'>
                     {listsBackUpData.map((item) => (
-                        <BackUpDataItem data={item.data} key={item.bookId} bookId={item.bookId} />
+                        <BackUpDataItem data={item.data} key={item.bookId} bookId={item.bookId} role={role} name={name} />
                     ))}
                 </ul>
             </div>}

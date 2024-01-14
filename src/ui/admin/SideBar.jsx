@@ -8,6 +8,7 @@ import users from "../../asset/svg/users.svg"
 import shoppingCart from "../../asset/svg/shopping.svg"
 import sideBarIcon from "../../asset/svg/side_bar.svg"
 import chartIcon from "../../asset/svg/chart.svg"
+import restore from "../../asset/svg/getDataBack.svg"
 
 
 function SideBar({handleUser}) {
@@ -108,7 +109,7 @@ function SideBar({handleUser}) {
                                 to="/backUpData"
                                 className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
                             >
-                                <img src={shoppingCart} alt="bookIcon" className="w-5 h-5" />
+                                <img src={restore} alt="RestoreIcon" className="w-5 h-5" />
                                 <span className="flex-1 ms-3 whitespace-nowrap">Back Up Data</span>
                             </Link>
                         </li>
