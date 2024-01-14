@@ -31,8 +31,8 @@ export default function UpdateInfo({ bookData, bookId }) {
 
     };
     return (
-        <form onSubmit={handleSubmit} className="p-4 md:p-5 space-y-5">
-            <div className="flex flex-col gap-5 ">
+        <form onSubmit={handleSubmit} className="p-4 md:p-5 space-y-2 md:space-y-5">
+            <div className="flex flex-col gap-2 md:gap-5 ">
                 <div className="flex flex-col md:flex-row gap-2 md:items-center">
                     <label htmlFor="title" className="text-sm font-medium text-white">Title:</label>
                     <input
@@ -74,7 +74,7 @@ export default function UpdateInfo({ bookData, bookId }) {
                     />
                 </div>
 
-                <label htmlFor="description" className="block text-sm font-medium dark:text-white text-start">Description:</label>
+                <label htmlFor="description" className="block text-sm font-medium text-white text-start">Description:</label>
                 <textarea
                     className="px-5 py-2 rounded-lg border-2"
                     id="description"
