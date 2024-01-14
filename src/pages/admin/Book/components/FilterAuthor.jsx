@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 export default function FilterAuthor({ onSelectChange }) {
     const [selectedAuthor, setSelectedAuthor] = useState('all_author');

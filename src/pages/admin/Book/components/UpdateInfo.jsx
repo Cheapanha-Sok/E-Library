@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import {updateBookInfo} from "../../../../contexts/Books/BookStoreAction.js";
 import Input from '../../../../ui/shared/Input.jsx';
+import Button from '../../../../ui/shared/Button.jsx';
 
 export default function UpdateInfo({ bookData, bookId }) {
     const { title, categories, price, author, description } = bookData;
@@ -84,12 +85,12 @@ export default function UpdateInfo({ bookData, bookId }) {
                     required
                 ></textarea>
             </div>
-            <button
+            <Button
                 type="submit"
-                className="bg-white font-medium rounded-lg text-sm px-5 py-2.5"
+                customClass=" bg-white  text-[#283d50]"
             >
                 Update
-            </button>
+            </Button>
         </form>
     )
 }

@@ -4,6 +4,7 @@ import btnRemove from "../../../../asset/svg/remove.svg"
 import edit from "../../../../asset/svg/edit.svg"
 import restore from "../../../../asset/svg/restore.svg"
 import { getDataBack } from '../../../../contexts/Books/BookStoreAction';
+import Button from '../../../../ui/shared/Button';
 
 export default function BackUpDataItem({ data, bookId, role, name }) {
     const { title, price, description, image, categories, author, bookPdf } = data;
@@ -40,14 +41,14 @@ export default function BackUpDataItem({ data, bookId, role, name }) {
 
                 </div>
                 <div className="flex md:flex-col gap-5 justify-end md:justify-center text-xs">
-                    {role === "admin" || (role === "author" && name === author) ? <button className="p-2 bg-[#283d50] rounded-xl text-white flex gap-2 items-center " onClick={handleGetDataBack}>
+                    {role === "admin" || (role === "author" && name === author) ? <Button customClass="bg-[#283d50] text-white" onClick={handleGetDataBack}>
                         <img src={restore} alt="" className="w-3 md:w-4" />
                         Restore
-                    </button> : null}
-                    {role === "admin" || (role === "author" && name === author) ? <button className="bg-red-500 p-2 rounded-xl text-white flex gap-2 items-center" onClick={handleRemoveBook}>
+                    </Button> : null}
+                    {role === "admin" || (role === "author" && name === author) ? <Button customClass="bg-red-500 text-white" onClick={handleRemoveBook}>
                         <img src={btnRemove} alt="" className="w-3 md:w-4" />
                         Delete Item
-                    </button> : null}
+                    </Button> : null}
 
                 </div>
 

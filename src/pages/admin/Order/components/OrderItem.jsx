@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import ShowItem from './ShowItem'
+import Button from '../../../../ui/shared/Button'
 
 export default function OrderItem({ data }) {
     const [isShowItem, setShowItem] = useState(false)
@@ -18,10 +19,10 @@ export default function OrderItem({ data }) {
                     <p className='text-gray-500'>Order At : {orderAt}</p>
                 </div>
                 <div>
-                    <button onClick={handleShowItem} className='p-2 bg-[#283d50] rounded-xl text-white'>Show Item</button>
+                    <Button onClick={handleShowItem} customClass=' bg-[#283d50] text-white'>Show Item</Button>
                 </div>
             </div>
-            {isShowItem && <ShowItem items={items} onClose={handleShowItem}/>}
+            {isShowItem && <ShowItem items={items} onClose={handleShowItem} />}
         </li>
     )
 }

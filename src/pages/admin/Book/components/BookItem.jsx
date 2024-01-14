@@ -41,7 +41,7 @@
 
           <div className="flex md:flex-col gap-5 justify-end md:justify-center text-xs">
             {role === "admin" || (role === "author" && name === author) ? <button className="p-2 bg-[#283d50] rounded-xl text-white flex gap-2 items-center " onClick={handleClick}>
-              <img src={edit} alt="" className="w-4 md:w-5" />
+              <img src={edit} alt="" className="w-3 md:w-4" />
               Update Item
             </button> : null}
             {role === "admin" || (role === "author" && name === author) ? <button className="bg-red-500 p-2 rounded-xl text-white flex gap-2 items-center" onClick={handleRemoveBook}>

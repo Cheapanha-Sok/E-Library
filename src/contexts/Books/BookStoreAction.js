@@ -139,7 +139,7 @@ export const updateBookImageAndPdf = async (bookData, bookId) => {
         bookPdf: pdfUrl,
       });
     }
-    toast.success("Book info updated successfully");
+    toast.success("Bookupdated successfully");
   } catch (error) {
     console.log(error);
     toast.error("Error updating book:", error);
@@ -180,6 +180,7 @@ export const getDataBack = async (
       image,
       bookPdf,
     });
+    toast.success("Restore book success")
     await removeFromBackUpData(bookId , false);
   } catch (error) {
     console.log(error);

@@ -1,9 +1,10 @@
 import { useState } from "react";
-import {createNewBook} from "../../../../contexts/Books/BookStoreAction.js";
+import { createNewBook } from "../../../../contexts/Books/BookStoreAction.js";
 import Modal from "../../../../ui/shared/Modal.jsx";
 import Input from "../../../../ui/shared/Input.jsx";
+import Button from "../../../../ui/shared/Button.jsx";
 
-export default function AddBook({ onClose , name  }) {
+export default function AddBook({ onClose, name }) {
   const initialState = {
     title: "",
     description: "",
@@ -120,13 +121,16 @@ export default function AddBook({ onClose , name  }) {
             onChange={onChange}
             required
           ></textarea>
+
         </div>
-        <button
-          type="submit"
-          className="bg-white font-medium rounded-lg text-sm px-5 py-2.5 text-[#283d50]"
-        >
-          Submit
-        </button>
+        <div>
+          <Button
+            type="submit"
+            customClass="bg-white text-[#283d50] "
+          >
+            Submit
+          </Button>
+        </div>
       </form>
     </Modal>
   );

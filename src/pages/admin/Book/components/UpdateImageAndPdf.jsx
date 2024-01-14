@@ -1,6 +1,7 @@
 import { useState } from 'react'
-import {updateBookImageAndPdf} from "../../../../contexts/Books/BookStoreAction.js";
+import { updateBookImageAndPdf } from "../../../../contexts/Books/BookStoreAction.js";
 import Input from '../../../../ui/shared/Input.jsx';
+import Button from '../../../../ui/shared/Button.jsx';
 
 export default function UpdateImageAndPdf({ bookData, bookId }) {
     const { image, bookPdf } = bookData;
@@ -51,7 +52,7 @@ export default function UpdateImageAndPdf({ bookData, bookId }) {
                         />
                     </div>
                     <img src={image} alt="" className="w-[100px] h-[150px] md:w-[150px] md:h-[200px]" />
-                    
+
                 </div>
                 <div className="flex flex-col md:flex-row gap-5">
                     <div className="space-y-2">
@@ -71,15 +72,15 @@ export default function UpdateImageAndPdf({ bookData, bookId }) {
 
                     </div>
                     <iframe src={bookPdf} className="w-[100px] h-[150px] md:w-[150px] md:h-[200px]" ></iframe>
-                    
+
                 </div>
             </div>
-            <button
+            <Button
                 type="submit"
-                className="my-3 inline-flex items-center bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center text-[#283d50]"
+                customClass=" bg-white  text-[#283d50]"
             >
                 Update
-            </button>
+            </Button>
         </form>
     )
 }

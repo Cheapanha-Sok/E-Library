@@ -1,7 +1,8 @@
 import React from 'react'
 import closeModal from "../../asset/svg/closeModal.svg"
+import Button from './Button'
 
-export default function Modal({ children, onClose, title , content }) {
+export default function Modal({ children, onClose, title, content }) {
     return (
         <div
             id="updateData"
@@ -13,20 +14,18 @@ export default function Modal({ children, onClose, title , content }) {
                     <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
                         <div className="flex flex-col md:flex-row gap-5 md:items-center">
                             <h3 className="md:text-lg font-semibold text-white">
-                            {title}
-                        </h3>
+                                {title}
+                            </h3>
                             {content ? <div>
                                 {content}
                             </div> : null}
                         </div>
-                        <button
+                        <Button
                             type="button"
-                            className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                            data-modal-toggle="crud-modal"
                             onClick={onClose}
                         >
                             <img src={closeModal} alt="iconClose" className='w-5' />
-                        </button>
+                        </Button>
                     </div>
                     {children}
                 </div>

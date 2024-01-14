@@ -1,6 +1,5 @@
-import React from 'react'
 import defaultUserImage from "../../../../asset/image/defaultUser.png"
-import editUser from "../../../../asset/svg/editUser.svg"
+import Button from '../../../../ui/shared/Button'
 
 export default function UserItem({ data, roles }) {
     console.log(roles)
@@ -25,10 +24,9 @@ export default function UserItem({ data, roles }) {
                     </div>
                 </div>
                 <div className='flex md:flex-col gap-5 justify-end md:justify-center text-xs'>
-                    {roles === "admin" ? <button className='p-2 bg-[#283d50] rounded-xl text-white flex gap-2 items-center  '>
-                        <img src={editUser} alt="" className="w-3 md:w-5" />
+                    {roles === "admin" ? <Button customClass='bg-[#283d50] text-white'>
                         Edit User
-                    </button> : null}
+                    </Button> : null}
                 </div>
             </div>
         </li>

@@ -57,10 +57,10 @@ export const removeFromBackUpData = async (bookId, isRemove) => {
     if (isRemove) {
       await deleteObject(bookImgRef);
       await deleteObject(bookPdfRef);
+      toast.success("Remove from backup data success");
     }
 
     await deleteDoc(backUpDataRef);
-    toast.success("Remove from backup data success")
   } catch (error) {
     console.log(error);
   }
