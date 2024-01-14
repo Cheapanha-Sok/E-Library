@@ -15,7 +15,7 @@ export default function LoginWithGoogle() {
   return (
     <Button
       onClick={handleGoogleSignIn}
-      customClass="bg-[#283d50]"
+      customClass="bg-[#283d50] text-white"
       type="button"
     >
       <img src={Google} alt="" className="w-5 h-5 mr-5" />

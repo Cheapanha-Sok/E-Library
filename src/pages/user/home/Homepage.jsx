@@ -39,7 +39,7 @@ export default function Homepage() {
         <section>
           <div className="space-y-10 p-5">
             <HeroSection />
-            <Button customClass="bg-[#283d50]">
+              <Button customClass="bg-[#283d50] text-white">
               <Link to="/bookCategories">Choose book by categories</Link>
             </Button>
             <LatestBook />

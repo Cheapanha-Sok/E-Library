@@ -146,7 +146,7 @@ export default function Payment({
           </div>
         </div>
         {order.length ? <div className="flex flex-col gap-5">
-          <Button customClass="bg-[#283d50]" type="submit">
+          <Button customClass="bg-[#283d50] text-white" type="submit">
             Pay now
           </Button>
         </div> : null}

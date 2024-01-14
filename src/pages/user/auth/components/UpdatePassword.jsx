@@ -41,7 +41,7 @@ export default function UpdatePassword({ setAuthOption }) {
             required
           />
           <span onClick={() => setAuthOption("Sign In")} className="text-end cursor-pointer">Cancel</span>
-          <Button customClass="bg-[#283d50]" type="submit">
+          <Button customClass="bg-[#283d50] text-white" type="submit">
             Reset
           </Button>
         </form>

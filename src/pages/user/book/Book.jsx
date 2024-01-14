@@ -79,7 +79,7 @@ export default function Book() {
               <div className="flex flex-col gap-5 md:w-1/4">
                 {price !== 0 ? (
                   <Button
-                    customClass=" bg-[#283d50]"
+                    customClass=" bg-[#283d50] text-white"
                     onClick={handleAddToCart}
                     type="button"
                   >
@@ -87,7 +87,7 @@ export default function Book() {
                   </Button>
                 ) : (
                   <Button
-                    customClass=" bg-[#283d50]"
+                    customClass=" bg-[#283d50] text-white"
                     type="button"
                     onClick={handelAddtoBookStore}
                   >

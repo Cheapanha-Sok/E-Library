@@ -35,7 +35,7 @@ const BookCategories = () => {
   return (
     <div className="flex flex-col gap-5 px-5 py-5">
       <Link to="/">
-        <Button customClass="bg-[#283d50]">&larr; Back to home</Button>
+        <Button customClass="bg-[#283d50] text-white">&larr; Back to home</Button>
       </Link>
       <div className="flex flex-col md:flex-row gap-5 justify-end">
         <div className="flex gap-5">

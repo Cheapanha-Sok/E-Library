@@ -81,7 +81,7 @@ export default function Register({ setAuthOption }) {
             autoComplete="off"
             required
           />
-          <Button type="submit" customClass="bg-[#283d50]">
+          <Button type="submit" customClass="bg-[#283d50] text-white">
             Sign Up
           </Button>
         </form>
@@ -96,7 +96,7 @@ export default function Register({ setAuthOption }) {
 
         <div className="mt-6 text-black flex justify-between gap-2 items-center">
           <p>Already have an account ?</p>
-          <Button customClass="bg-[#283d50]" onClick={() => setAuthOption("Sign In") }>Log in</Button>
+          <Button customClass="bg-[#283d50] text-white" onClick={() => setAuthOption("Sign In") }>Log in</Button>
         </div>
       </div>
     </>

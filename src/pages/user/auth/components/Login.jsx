@@ -53,7 +53,7 @@ export default function Login({ setAuthOption }) {
             autoComplete="off"
             required
           />
-          <Button type="submit" customClass="bg-[#283d50]">
+          <Button type="submit" customClass="bg-[#283d50] text-white">
             Sign In
           </Button>
           <span onClick={() => setAuthOption("Forget Password")} className=" text-end cursor-pointer">
@@ -71,7 +71,7 @@ export default function Login({ setAuthOption }) {
 
         <div className="mt-6 text-black flex justify-between gap-2 items-center">
           <p>Create an account</p>
-          <Button customClass="bg-[#283d50]" type="button" onClick={() => setAuthOption("Sign Up")}>
+          <Button customClass="bg-[#283d50] text-white" type="button" onClick={() => setAuthOption("Sign Up")}>
             Sign up
           </Button>
         </div>

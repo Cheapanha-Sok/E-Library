@@ -68,7 +68,7 @@ export default function UserDetail() {
               My Profile
             </span>
             <Button
-              customClass="bg-red-500"
+              customClass="bg-red-500 text-white"
               type="button"
               onClick={handleLogOut}
             >
@@ -141,7 +141,7 @@ export default function UserDetail() {
                 )}
               </div>
               {isEdit && (
-                <Button customClass="bg-[#283d50]" type="submit">
+                <Button customClass="bg-[#283d50] text-white" type="submit">
                   Save
                 </Button>
               )}

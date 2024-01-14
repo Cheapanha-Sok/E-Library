@@ -35,7 +35,7 @@ function Cart() {
   return (
     <div className="px-3 py-3 flex flex-col gap-5">
       <Link to="/">
-        <Button customClass="bg-[#283d50]">&larr; Back to home</Button>
+        <Button customClass="bg-[#283d50] text-white">&larr; Back to home</Button>
       </Link>
       <h2 className="pb-5 pt-5 text-2xl font-semibold">Shopping Cart</h2>
       <ul className="flex flex-col gap-5">
@@ -54,7 +54,7 @@ function Cart() {
 
         {!listProduct.length ? null : (
           <Link to="/order">
-            <Button customClass="bg-[#283d50]">Order Now</Button>
+            <Button customClass="bg-[#283d50] text-white">Order Now</Button>
           </Link>
         )}
       </div>
