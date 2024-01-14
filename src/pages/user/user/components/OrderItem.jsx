@@ -11,9 +11,11 @@ export default function OrderItem({ orders }) {
                         <div>
                             <p>Title: {order.title}</p>
                             <p>{order.categories}</p>
+                            <p>Date: {order.formattedDate}</p>
                         </div>
 
                         <p>Price: ${order.price}</p>
+                        
                     </li>
                 ))
             )}

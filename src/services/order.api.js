@@ -40,7 +40,8 @@ export const checkOut = async (cart, totalPriceOrder, email, phoneNumber) => {
         cartItem.bookId,
         cartItem.title,
         cartItem.price,
-        cartItem.categories
+        cartItem.categories,
+        formattedDate
       );
     }
 
@@ -99,7 +100,13 @@ export const isBoughtBook = async (bookId) => {
     console.log(error);
   }
 };
-export const setOrderHistory = async (bookId, title, price, categories) => {
+export const setOrderHistory = async (
+  bookId,
+  title,
+  price,
+  categories,
+  formattedDate
+) => {
   try {
     const userRef = doc(db, "orderHistory", auth.currentUser.uid);
     const orderSnapshot = await getDoc(userRef);
@@ -114,6 +121,7 @@ export const setOrderHistory = async (bookId, title, price, categories) => {
         title,
         price,
         categories,
+        formattedDate,
       },
     ];
     const totalOrder = currentOrderData.totalOrder + 1;
