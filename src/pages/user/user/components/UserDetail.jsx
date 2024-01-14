@@ -5,7 +5,7 @@ import { getLoading, getUser, setLoading, setUser } from "../userSlice";
 import Spinner from "../../../../ui/Spinner.jsx";
 import { useEffect, useState } from "react";
 import Input from "../../../../ui/shared/Input";
-import Edit from "../../../../asset/svg/edit.svg";
+import EditUser from "../../../../asset/svg/editUser.svg"
 import defaultUser from "../../../../asset/image/defaultUser.png";
 
 export default function UserDetail() {
@@ -98,7 +98,7 @@ export default function UserDetail() {
                 />
               )}
               <Button onClick={() => setIsEdit(!isEdit)} type="button">
-                <img src={Edit} alt="editBtn" className="w-5 h-5" />
+                <img src={EditUser} alt="editBtn" className="w-5 h-5" />
               </Button>
             </div>
 
