@@ -1,7 +1,7 @@
-import {Link, useNavigate} from "react-router-dom";
-import {logOut} from "../../contexts/user/UserAction.js";
+import { Link, useNavigate } from "react-router-dom";
+import { logOut } from "../../contexts/user/UserAction.js";
 import logout from "../../asset/svg/logout.svg"
-import {useState, useEffect, useRef} from "react";
+import { useState, useEffect, useRef } from "react";
 import logo from "../../asset/image/LogoBgWhite.png"
 import bookIcon from "../../asset/svg/bookIcon.svg"
 import users from "../../asset/svg/users.svg"
@@ -11,7 +11,7 @@ import chartIcon from "../../asset/svg/chart.svg"
 import restore from "../../asset/svg/getDataBack.svg"
 
 
-function SideBar({handleUser}) {
+function SideBar({ handleUser }) {
     const navigate = useNavigate();
     const [isOpen, setIsOpen] = useState(false);
     const sidebarRef = useRef(null);
@@ -50,19 +50,19 @@ function SideBar({handleUser}) {
         sm:hidden"
             >
                 <span className="sr-only">Toggle sidebar</span>
-                <img src={sideBarIcon} alt="sideBarIcon" className="w-5"/>
+                <img src={sideBarIcon} alt="sideBarIcon" className="w-5" />
             </button>
 
             <aside
                 ref={sidebarRef}
                 className={`fixed md:sticky h-screen top-0 left-0 z-20 w-40 md:w-64 transition-transform ${isOpen ? "md:block" : "hidden md:block"
-                }`}
+                    }`}
                 aria-label="Sidebar"
             >
                 <div className="h-full px-3 py-4 overflow-y-auto bg-[#283d50]">
                     <div className="flex justify-center md:py-5">
                         <Link to="/">
-                            <img src={logo} alt="logo" className="w-[50px] md:w-[100px]"/>
+                            <img src={logo} alt="logo" className="w-[50px] md:w-[100px]" />
                         </Link>
                     </div>
 
@@ -72,7 +72,7 @@ function SideBar({handleUser}) {
                                 to="/"
                                 className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
                             >
-                                <img src={chartIcon} alt="chartIcon" className="w-5 h-5"/>
+                                <img src={chartIcon} alt="chartIcon" className="w-5 h-5" />
                                 <span className="ms-3">Dashboard</span>
                             </Link>
                         </li>
@@ -82,7 +82,7 @@ function SideBar({handleUser}) {
                                 to="/books"
                                 className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
                             >
-                                <img src={bookIcon} alt="bookIcon" className="w-5 h-5"/>
+                                <img src={bookIcon} alt="bookIcon" className="w-5 h-5" />
                                 <span className="flex-1 ms-3 whitespace-nowrap">Books</span>
                             </Link>
                         </li>
@@ -91,7 +91,7 @@ function SideBar({handleUser}) {
                                 to="/users"
                                 className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
                             >
-                                <img src={users} alt="bookIcon" className="w-5 h-5"/>
+                                <img src={users} alt="bookIcon" className="w-5 h-5" />
                                 <span className="flex-1 ms-3 whitespace-nowrap">Users</span>
                             </Link>
                         </li>
@@ -100,7 +100,7 @@ function SideBar({handleUser}) {
                                 to="/orders"
                                 className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
                             >
-                                <img src={shoppingCart} alt="bookIcon" className="w-5 h-5"/>
+                                <img src={shoppingCart} alt="bookIcon" className="w-5 h-5" />
                                 <span className="flex-1 ms-3 whitespace-nowrap">Orders</span>
                             </Link>
                         </li>
@@ -117,7 +117,7 @@ function SideBar({handleUser}) {
                             onClick={handleLogOut}
                             className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
 
-                            <img src={logout} alt="logOut" className="h-5 w-5"/>
+                            <img src={logout} alt="logOut" className="h-5 w-5" />
                             <span className="flex-1 ms-3 whitespace-nowrap">Sign Out</span>
                         </button>
                     </ul>

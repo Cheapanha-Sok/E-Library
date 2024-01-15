@@ -1,8 +1,7 @@
 import React from 'react'
 import { removeFromBackUpData } from '../../../../contexts/BackUpData/BackUpDataAction';
 import btnRemove from "../../../../asset/svg/remove.svg"
-import edit from "../../../../asset/svg/edit.svg"
-import restore from "../../../../asset/svg/restore.svg"
+import restore from "../../../../asset/svg/getDataBack.svg"
 import { getDataBack } from '../../../../contexts/Books/BookStoreAction';
 import Button from '../../../../ui/shared/Button';
 
