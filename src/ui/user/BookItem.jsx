@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types"
 export default function BookItem({ book }) {
-  const { bookId, title, categories, price, image, description } = book;
+  const { bookId, title, categories, price, image, description , isBought} = book;
   return (
     <div className="w-full bg-white shadow-md border-gray-200 md:duration-500 md:hover:scale-105 md:hover:shadow-xl ">
       <Link to={`/book/${categories}/${bookId}`}>
@@ -15,7 +15,7 @@ export default function BookItem({ book }) {
             {title}
           </p>
           <p className="mb-3 font-normal text-gray-700 truncate block capitalize">
-            {description}
+            {isBought}
           </p>
           <p className="text-sm font-semibold text-black">
             {price ? `${price}$` : "Free"}

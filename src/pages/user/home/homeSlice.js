@@ -22,7 +22,7 @@ const homeSlice = createSlice({
       const popularBook = state.bookList.filter((item) => item.isBought);
       state.popularBook = popularBook
         .slice(0, 4)
-        .sort((a, b) => b.someNumericProperty - a.someNumericProperty);
+        .sort((a, b) => b.isBought - a.isBought);
     },
     setLatestBook: (state) => {
       state.latestBook = state.bookList.slice().reverse().slice(0, 4);
