@@ -3,7 +3,6 @@ import { getBackUpData } from '../../../contexts/BackUpData/BackUpDataAction'
 import { useContext, useEffect } from 'react'
 import BackUpDataItem from './components/BackUpDataItem'
 import Spinner from '../../../ui/Spinner'
-import UserContext from '../../../contexts/user/UserContext'
 
 export default function BackUpDataList({ role, name }) {
     const { listsBackUpData, dispatch, loading } = useContext(BackUpDataContext)
@@ -16,7 +15,7 @@ export default function BackUpDataList({ role, name }) {
     }, [dispatch])
     return (
         <>
-            {!listsBackUpData.length ? <p>No back up data</p> : loading ? <Spinner type="full" /> : <div className='flex-col gap-5'>
+            {!listsBackUpData.length ? <div className='h-screen flex justify-center items-center md:text-4xl'>No backup data</div> : loading ? <Spinner type="full" /> : <div className='flex-col gap-5'>
                 <div className="w-full md:w-1/2 mx-auto">
                 </div>
                 <ul className='flex-col gap-5 p-5'>

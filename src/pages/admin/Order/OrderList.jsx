@@ -15,7 +15,7 @@ export default function OrderList() {
   }, [dispatch])
   return (
     <>
-      {!listOrders.length ? <p>No Order</p> : loading ? <Spinner type="full" /> : <div className='flex-col gap-5'>
+      {!listOrders.length ? <div className='h-screen flex justify-center items-center md:text-4xl'>No order yet</div> : loading ? <Spinner type="full" /> : <div className='flex-col gap-5'>
         <div className="w-full md:w-1/2 mx-auto">
         </div>
         <ul className='flex-col gap-5 p-5'>

@@ -52,7 +52,7 @@ export default function UserList({ role }) {
     return (
         <>
             {!user ? (
-                <p>No data</p>
+                <div className='h-screen flex justify-center items-center md:text-4xl'>No user yet</div>
             ) : loading ? (
                 <Spinner type="full" />
             ) : (

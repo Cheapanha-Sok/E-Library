@@ -55,7 +55,7 @@ function SideBar({ handleUser }) {
 
             <aside
                 ref={sidebarRef}
-                className={`fixed md:sticky h-screen top-0 left-0 z-20 w-40 md:w-64 transition-transform ${isOpen ? "md:block" : "hidden md:block"
+                className={`fixed md:sticky h-screen top-0 left-0 z-20 w-40 md:w-64 transition-transform text-xs md:text-lg ${isOpen ? "md:block" : "hidden md:block"
                     }`}
                 aria-label="Sidebar"
             >
