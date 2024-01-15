@@ -7,8 +7,10 @@ import { useEffect, useState } from "react";
 import Input from "../../../../ui/shared/Input";
 import EditUser from "../../../../asset/svg/editUser.svg"
 import defaultUser from "../../../../asset/image/defaultUser.png";
+import { useNavigate } from "react-router-dom";
 
 export default function UserDetail() {
+  const navigate = useNavigate()
   const userData = useSelector(getUser);
   const loading = useSelector(getLoading);
   const { username, email, userImage, phoneNumber } = userData;
@@ -45,7 +47,10 @@ export default function UserDetail() {
 
   const handleLogOut = async (e) => {
     e.preventDefault();
-    await logOut();
+    const response = await logOut();
+    if (response) {
+      navigate("/")
+    }
   };
 
   const handleEdit = async (e) => {

@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { logOut } from "../../contexts/user/UserAction.js";
+import { logOut } from "../../services/user.api";
 import logout from "../../asset/svg/logout.svg"
 import { useState, useEffect, useRef } from "react";
 import logo from "../../asset/image/LogoBgWhite.png"

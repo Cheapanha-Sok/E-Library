@@ -1,6 +1,5 @@
 import { auth, db, getDataStorage } from "../firebase.config";
 import { toast } from "react-toastify";
-
 import {
   collection,
   doc,
@@ -41,7 +40,6 @@ export const googleSignIn = async () => {
         phoneNumber: "XXX-XXX-XXX",
         role: "user",
       });
-      return true;
     }
     toast.success("Welcome to our website");
     return true;
@@ -100,24 +98,27 @@ export const signUp = async (username, email, password, confirmPassword) => {
     }
   }
 };
-
 export const signIn = async (email, password) => {
   try {
     await signInWithEmailAndPassword(auth, email, password);
-    toast.success("Welcome to our website");
-    return true;
-  } catch (error) {
-    if (error.code === "auth/invalid-login-credentials") {
-      toast.error("Incorrect password. Please try again.");
-    } else {
-      toast.error("An error occurred during sign-in.");
+    const userRef = doc(db, "users", auth.currentUser.uid);
+    const docSnap = await getDoc(userRef);
+    const userData = docSnap.data().role;
+    if (userData == "admin" || userData == "author") {
+      toast.success(`Welcome ${userData}`);
+      return;
     }
+    toast.success("Welcome to our website");
+  } catch (error) {
+    toast.error("Incorrect password or email. Please try again.");
+    console.log(error);
   }
 };
 
 export const logOut = async () => {
   try {
-    await signOut(auth);
+    signOut(auth);
+    return true;
   } catch (error) {
     console.log(error);
   }

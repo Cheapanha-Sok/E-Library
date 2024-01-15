@@ -42,7 +42,7 @@ function Cart() {
         {!listProduct.length ? (
           <Empty text="Add something to make me happy" image={EmptyCart} />
         ) : loadingItem ? (
-          <Spinner type="full" />
+            <Spinner isFull={true} />
         ) : (
           listProduct.map((item) => <CartItems item={item} key={item.bookId} />)
         )}

@@ -30,7 +30,7 @@ export default function ReadBook() {
   return (
     <div className="h-screen py-5">
       {loading ? (
-        <Spinner type="full" />
+        <Spinner isFull={true} />
       ) : isBookMark ? (
         <iframe src={bookPdf} height="100%" width="100%"></iframe>
       ) : (

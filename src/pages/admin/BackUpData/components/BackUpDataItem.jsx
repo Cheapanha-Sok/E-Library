@@ -1,4 +1,3 @@
-import React from 'react'
 import { removeFromBackUpData } from '../../../../contexts/BackUpData/BackUpDataAction';
 import btnRemove from "../../../../asset/svg/remove.svg"
 import restore from "../../../../asset/svg/getDataBack.svg"

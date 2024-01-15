@@ -34,7 +34,7 @@ export default function BookUser() {
       {!data.length ? (
         <Empty text="Add some book to read" image={EmptyBook} />
       ) : loading ? (
-        <Spinner type="full" />
+          <Spinner isFull={true} />
       ) : (
         <ul className="flex flex-col gap-5">
           {data.map((book) => (

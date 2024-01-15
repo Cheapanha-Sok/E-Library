@@ -3,10 +3,10 @@ import { getBackUpData } from '../../../contexts/BackUpData/BackUpDataAction'
 import { useContext, useEffect } from 'react'
 import BackUpDataItem from './components/BackUpDataItem'
 import Spinner from '../../../ui/Spinner'
+import UserContext from '../../../contexts/user/UserContext'
 
 export default function BackUpDataList({ role, name }) {
     const { listsBackUpData, dispatch, loading } = useContext(BackUpDataContext)
-    console.log(role)
     useEffect(() => {
         dispatch({ type: "SET_LOADING" })
         const unsubscribe = getBackUpData((data) => {

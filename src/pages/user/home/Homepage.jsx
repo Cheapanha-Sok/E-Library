@@ -34,7 +34,7 @@ export default function Homepage() {
   return (
     <>
       {loading ? (
-        <Spinner type="full" />
+        <Spinner isFull={true} />
       ) : (
         <section>
           <div className="space-y-10 p-5">

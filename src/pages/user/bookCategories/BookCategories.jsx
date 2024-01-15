@@ -45,7 +45,7 @@ const BookCategories = () => {
       </div>
 
       {loading ? (
-        <Spinner type="full" />
+        <Spinner isFull={true} />
       ) : (
         <BookList data={bookCategories.length ? bookCategories : allBooks} />
       )}
