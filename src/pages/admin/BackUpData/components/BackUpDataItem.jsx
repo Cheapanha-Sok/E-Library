@@ -15,11 +15,11 @@ export default function BackUpDataItem({ data, bookId, role, name }) {
         await getDataBack(bookId, title, price, description, image, categories, author, bookPdf);
     }
     return (
-        <li className="flex flex-col shadow-2xl rounded-xl">
+        <li className="flex flex-col border-2 rounded-lg">
             <div className="flex gap-5 flex-col md:flex-row justify-between text-md p-5">
                 <div className="flex justify-center items-center gap-5">
                     <img
-                        className="w-[100px] md:w-[150px] border-2 p-2 md:p-5 rounded-xl"
+                        className="w-[100px] md:w-[150px] p-2"
                         src={image}
                         alt="bookImage"
                     />

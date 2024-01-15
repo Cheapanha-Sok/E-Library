@@ -88,7 +88,7 @@ export const isInBookMark = async (bookId) => {
       return existingItemIndex;
     }
 
-    return -1;
+    return -1; 
   } catch (error) {
     console.error(error);
     return -1;

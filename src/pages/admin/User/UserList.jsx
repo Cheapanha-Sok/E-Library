@@ -51,7 +51,7 @@ export default function UserList({ role }) {
 
     return (
         <ul className="flex flex-col gap-5 p-5">
-            {!user ? (
+            {!user.length ? (
                 <div className='h-screen flex justify-center items-center md:text-4xl'>No user yet</div>
             ) : loading ? (
                 <Spinner type="full" />
