@@ -61,7 +61,7 @@ export default function UserList({ role }) {
                         <Bar data={chartData} />
                     </div>
                     {user.map((item) => (
-                        <UserItem data={item.data} key={item.id} userId={item.id} roles={role} />
+                        <UserItem data={item.data} key={item.userId} userId={item.userId} roles={role} />
                     ))}
                 </div>
             )}
