@@ -26,6 +26,6 @@ export default function BookItem({ book }) {
   );
 }
 BookItem.propTypes = {
-  book: PropTypes.array
+  book: PropTypes.object
 }
 
