@@ -1,5 +1,5 @@
-import { db } from "../../firebase.config";
-import { collection, onSnapshot } from "firebase/firestore";
+import { auth, db } from "../../firebase.config";
+import { collection, doc, onSnapshot, updateDoc } from "firebase/firestore";
 import { toast } from "react-toastify";
 
 export const getAllUser = (callback) => {
@@ -25,7 +25,19 @@ export const getAllUser = (callback) => {
   );
   return unsubscribe;
 };
-
+export const updateUserRole = async (role , userId) => {
+  try {
+    const userRef = doc(db, "users", userId);
+    if (role) {
+      await updateDoc(userRef, {
+        role,
+      });
+      toast.success(`Change role to ${role} success`);
+    }
+  } catch (error) {
+    toast.error("Something when wrong");
+  }
+};
 export const calculateUser = (Userdata) => {
   const typeCount = {
     user: 0,
