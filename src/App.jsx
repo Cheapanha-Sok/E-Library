@@ -16,7 +16,6 @@ import { UserProvider } from "./contexts/user/UserContext.jsx";
 import AppLayoutUser from "./ui/user/AppLayoutUser.jsx"
 import AppLayoutAdmin from "./ui/admin/AppLayoutAdmin.jsx"
 import { BackUpDataProvider } from "./contexts/BackUpData/BackUpDataContext.jsx";
-import BackUpDataList from "./pages/admin/BackUpData/BackUpDataList.jsx";
 import { ToastContainer } from "react-toastify";
 const Authentication = lazy(() => import("./pages/user/auth/Authentication.jsx"))
 const Homepage = lazy(() => import("./pages/user/home/Homepage.jsx"))
@@ -33,6 +32,7 @@ const Dashboard = lazy(() => import("./pages/admin/Dashboard.jsx"))
 const UserList = lazy(() => import("./pages/admin/User/UserList.jsx"))
 const BookList = lazy(() => import("./pages/admin/Book/BookList.jsx"))
 const OrderList = lazy(() => import("./pages/admin/Order/OrderList.jsx"))
+const BackUpDataList = lazy(() => import("./pages/admin/BackUpData/BackUpDataList.jsx"))
 
 const App = () => {
     const [role, setRole] = useState(null);

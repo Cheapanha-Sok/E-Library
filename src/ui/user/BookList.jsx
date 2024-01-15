@@ -1,5 +1,5 @@
 import BookItem from "./BookItem";
-
+import PropTypes from "prop-types"
 export default function BookList({ data, slice }) {
   let displayedItems = data;
 
@@ -11,12 +11,14 @@ export default function BookList({ data, slice }) {
   }
 
   return (
-    <>
-      <div className="gap-5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 text-sm md:text-l">
-        {displayedItems.map((item) => (
-          <BookItem book={item} key={item.bookId} />
-        ))}
-      </div>
-    </>
+    <div className="gap-5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 text-sm md:text-l">
+      {displayedItems.map((item) => (
+        <BookItem book={item} key={item.bookId} />
+      ))}
+    </div>
   );
+}
+BookList.propTypes = {
+  data: PropTypes.array.isRequired,
+  slice: PropTypes.number
 }

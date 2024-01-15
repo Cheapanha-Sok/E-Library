@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types"
 export default function BookItem({ book }) {
   const { bookId, title, categories, price, image, description } = book;
   return (
@@ -24,5 +25,7 @@ export default function BookItem({ book }) {
     </div>
   );
 }
-
+BookItem.propTypes = {
+  book: PropTypes.array
+}
 
