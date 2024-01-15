@@ -34,6 +34,9 @@ const bookCategoriesSlice = createSlice({
           : state.books.filter(
               (item) => item.categories === state.bookType && item.price !== 0
             );
+      if (state.bookCategories.length === 0) {
+        state.bookCategories = [];
+      }
 
       if (state.filterBy === "High") {
         state.bookCategories = state.bookCategories.sort(
