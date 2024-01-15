@@ -29,7 +29,7 @@ export default function BookUser() {
   return (
     <div className="py-5 px-5 h-full flex flex-col gap-5">
       <Link to="/">
-        <Button customClass="bg-[#283d50]">&larr; Back to home</Button>
+        <Button customClass="bg-[#283d50] text-white">&larr; Back to home</Button>
       </Link>
       {!data.length ? (
         <Empty text="Add some book to read" image={EmptyBook} />

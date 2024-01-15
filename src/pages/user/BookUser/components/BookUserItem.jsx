@@ -26,9 +26,9 @@ export default function BookUserItem({ data }) {
 
         <div className="flex md:flex-col gap-5 justify-end md:justify-center">
           <Link to={`/readBook/${bookId}`}>
-            <Button customClass="bg-[#283d50]">Read now</Button>
+            <Button customClass="bg-[#283d50] text-white">Read now</Button>
           </Link>
-          <Button onClick={removeBookFromUser} customClass="bg-red-500">
+          <Button onClick={removeBookFromUser} customClass="bg-red-500 text-white">
             Remove
           </Button>
         </div>

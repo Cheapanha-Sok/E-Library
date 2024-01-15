@@ -1,5 +1,11 @@
 import { auth, db } from "../../firebase.config";
-import { collection, doc, onSnapshot, updateDoc } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  onSnapshot,
+  updateDoc,
+  where,
+} from "firebase/firestore";
 import { toast } from "react-toastify";
 
 export const getAllUser = (callback) => {
@@ -11,7 +17,7 @@ export const getAllUser = (callback) => {
       docSnap.forEach((item) => {
         if (item.data().role !== "admin") {
           list.push({
-            id: item.id,
+            userId: item.id,
             data: item.data(),
           });
         }
@@ -25,7 +31,7 @@ export const getAllUser = (callback) => {
   );
   return unsubscribe;
 };
-export const updateUserRole = async (role , userId) => {
+export const updateUserRole = async (role, userId) => {
   try {
     const userRef = doc(db, "users", userId);
     if (role) {

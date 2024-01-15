@@ -50,7 +50,7 @@ export default function UserList({ role }) {
     }, [dispatch]);
 
     return (
-        <>
+        <ul className="flex flex-col gap-5 p-5">
             {!user ? (
                 <div className='h-screen flex justify-center items-center md:text-4xl'>No user yet</div>
             ) : loading ? (
@@ -60,14 +60,12 @@ export default function UserList({ role }) {
                     <div className="w-full md:w-1/2 mx-auto">
                         <Bar data={chartData} />
                     </div>
-                    <ul className='flex-col gap-5 p-5'>
-                        {user.map((item) => (
-                            <UserItem data={item.data} key={item.id} userId={item.id} roles={role} />
-                        ))}
-                    </ul>
+                    {user.map((item) => (
+                        <UserItem data={item.data} key={item.id} userId={item.id} roles={role} />
+                    ))}
                 </div>
             )}
-        </>
+        </ul>
 
 
     );
